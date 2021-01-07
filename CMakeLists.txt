@@ -4,5 +4,5 @@ cmake_minimum_required(VERSION 3.10)
 project(Gcpu)
 include_directories(include/)
 # add the executable
-add_executable(Gcpu main.cpp src/gcpu.cpp)
+add_executable(Gcpu main.cpp src/gcpu.cpp src/opcodes.cpp)
 set(CMAKE_BUILD_TYPE Debug)

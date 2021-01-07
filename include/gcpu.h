@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -10,16 +11,17 @@ class Gcpu{
 public:
     Gcpu(string file);
     void exec();
-    char registers[8];
+    void read();
+    int getRegVal(int index); //Encapsualtion for registers
 
 private:
     int currentInstruction;
+    char registers[8];
     //opcodes
-    void OP00(char src, char dest); //mov
+    void OP00(char dest, char val); //mov
     void OP01(int dest); //jmp
     ifstream fileStream;
     char* opcodes;
-    void read();
     size_t length;
 };
 
