@@ -1,5 +1,5 @@
-# Gcpu
-#Building:
+## Gcpu
+# Building:
 ```bash
 $ cmake .
 $ make
