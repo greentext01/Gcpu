@@ -21,12 +21,12 @@ void Gcpu::OP03(u_int8_t reg, u_int8_t memAddr){
     currentInstruction += 3;
 }
 
-void Gcpu::OP04(u_int8_t reg){
-    registers[reg]++;
-    currentInstruction += 2;
+void Gcpu::OP04(u_int8_t reg, uint8_t amount){
+    registers[reg] += amount;
+    currentInstruction += 3;
 }
 
-void Gcpu::OP05(u_int8_t reg){
-    registers[reg]--;
-    currentInstruction += 2;
+void Gcpu::OP05(u_int8_t reg, uint8_t amount){
+    registers[reg] -= amount;
+    currentInstruction += 3;
 }

@@ -23,7 +23,7 @@ void Gcpu::read(){
     }
 }
 
-void Gcpu::exec(){
+void Gcpu::exec(){ //Execute the current instruction
     switch(opcodes[currentInstruction]){
         case 00:
             OP00(opcodes[currentInstruction + 1], opcodes[currentInstruction + 2]);
@@ -38,10 +38,10 @@ void Gcpu::exec(){
             OP03(opcodes[currentInstruction + 1], opcodes[currentInstruction + 2]);
             break;
         case 04:
-            OP04(opcodes[currentInstruction + 1]);
+            OP04(opcodes[currentInstruction + 1], opcodes[currentInstruction + 2]);
             break;
         case 05:
-            OP05(opcodes[currentInstruction + 1]);
+            OP05(opcodes[currentInstruction + 1], opcodes[currentInstruction + 2]);
             break;
         
     }

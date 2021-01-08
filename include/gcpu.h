@@ -24,8 +24,8 @@ private:
     void OP01(u_int8_t dest); //jmp (jump to an opcode)
     void OP02(u_int8_t reg, u_int8_t memAddr); //memp (put value from register to memory)
     void OP03(u_int8_t reg, u_int8_t memAddr); //memg (get value from memory to register)
-    void OP04(u_int8_t reg); //inc (increment a register)
-    void OP05(u_int8_t reg); //dec (decrement a register)
+    void OP04(u_int8_t reg, u_int8_t amount); //add (add value to number from register)
+    void OP05(u_int8_t reg, u_int8_t amount); //sub (substract value to number from register)
     ifstream fileStream;
     vector<u_int8_t> opcodes;
     size_t length;
