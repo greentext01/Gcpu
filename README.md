@@ -1,6 +1,6 @@
 # Gcpu
 #Building:
 ```bash
-cmake .
-make
+$ cmake .
+$ make
 ```
