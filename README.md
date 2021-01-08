@@ -4,6 +4,7 @@
 $ cmake .
 $ make
 ```
+Output program is called Gcpu
 ## Editing:
 Edit testProg.bin with a hex editor
 
