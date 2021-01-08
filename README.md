@@ -15,3 +15,4 @@ Edit testProg.bin with a hex editor
 03: get value from memory to register
 04: increment a register
 05: decrement a register
+```
