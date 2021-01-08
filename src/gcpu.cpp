@@ -10,18 +10,16 @@ Gcpu::Gcpu(string file){
     fileStream.seekg(0, std::ios::end);
     length = fileStream.tellg();
     fileStream.seekg(0, std::ios::beg);
-    fill(registers.begin(), registers.end(), 0);
-    fill(memory.begin(), memory.end(), 0);
+    registers.resize(8);
+    memory.resize(255);
+    opcodes.resize(8);
 }
 
 void Gcpu::read(){
     for(int i = 0; i < length; i++){
         uint8_t opcode;
         fileStream >> hex >> opcode;
-        opcodes.push_back(opcode);
-        printf("%X\n", opcodes[i]);
-        fill(registers.begin(), registers.end(), 0);
-        fill(memory.begin(), memory.end(), 0);
+        opcodes[i] = opcode;
     }
 }
 
@@ -39,9 +37,18 @@ void Gcpu::exec(){
         case 03:
             OP03(opcodes[currentInstruction + 1], opcodes[currentInstruction + 2]);
             break;
+        case 04:
+            OP04(opcodes[currentInstruction + 1]);
+            break;
+        case 05:
+            OP05(opcodes[currentInstruction + 1]);
+            break;
+        
     }
 }
 
-uint8_t Gcpu::getRegVal(int index){
-    return registers[index];
+void Gcpu::printReg(){
+    for(int i = 0; i < registers.size(); i++){
+        cout << "(" << i << ") " << hex << (int)registers[i] << endl;
+    }
 }

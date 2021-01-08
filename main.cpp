@@ -9,5 +9,15 @@ int main(){
     gcpu.exec();
     gcpu.exec();
     gcpu.exec();
+    gcpu.exec();
+    gcpu.exec();
+    gcpu.exec();
+    gcpu.exec();
+    gcpu.exec();
+    gcpu.exec();
+    gcpu.exec();
+    gcpu.exec();
+    gcpu.exec();
+    gcpu.printReg();
     return EXIT_SUCCESS;
 }
