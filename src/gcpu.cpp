@@ -1,34 +1,47 @@
 #include <iostream>
 #include <fstream>
 #include "gcpu.h"
+#include <sstream>
 
 using namespace std;
 
 Gcpu::Gcpu(string file){
-    fileStream = ifstream(file, ios::binary); 
+    fileStream = ifstream(file, fstream::in); 
     fileStream.seekg(0, std::ios::end);
     length = fileStream.tellg();
     fileStream.seekg(0, std::ios::beg);
-    opcodes = new char[length];
+    fill(registers.begin(), registers.end(), 0);
+    fill(memory.begin(), memory.end(), 0);
 }
 
 void Gcpu::read(){
-    fileStream.read(opcodes, length);
-}
-
-void Gcpu::OP00(char dest, char val){
-    currentInstruction += 3;
-    registers[(int)dest] = val;
+    for(int i = 0; i < length; i++){
+        uint8_t opcode;
+        fileStream >> hex >> opcode;
+        opcodes.push_back(opcode);
+        printf("%X\n", opcodes[i]);
+        fill(registers.begin(), registers.end(), 0);
+        fill(memory.begin(), memory.end(), 0);
+    }
 }
 
 void Gcpu::exec(){
-    switch((int) *(opcodes + currentInstruction)){
+    switch(opcodes[currentInstruction]){
         case 00:
             OP00(opcodes[currentInstruction + 1], opcodes[currentInstruction + 2]);
+            break;
+        case 01:
+            OP01(opcodes[currentInstruction + 1]);
+            break;
+        case 02:
+            OP02(opcodes[currentInstruction + 1], opcodes[currentInstruction + 2]);
+            break;
+        case 03:
+            OP03(opcodes[currentInstruction + 1], opcodes[currentInstruction + 2]);
             break;
     }
 }
 
-int Gcpu::getRegVal(int index){
+uint8_t Gcpu::getRegVal(int index){
     return registers[index];
 }

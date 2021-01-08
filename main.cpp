@@ -7,8 +7,7 @@ int main(){
     Gcpu gcpu("testProg.bin");
     gcpu.read();
     gcpu.exec();
-    for(int i = 0; i < 8; i++){
-        cout << "(" << hex << i << ")" << gcpu.getRegVal(i) << endl;
-    }
+    gcpu.exec();
+    gcpu.exec();
     return EXIT_SUCCESS;
 }

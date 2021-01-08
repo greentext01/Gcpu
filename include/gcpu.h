@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <stdint.h>
 
 using namespace std;
 
@@ -12,16 +13,19 @@ public:
     Gcpu(string file);
     void exec();
     void read();
-    int getRegVal(int index); //Encapsualtion for registers
+    uint8_t getRegVal(int index); //Encapsualtion for registers
 
 private:
     int currentInstruction;
-    char registers[8];
+    vector<u_int8_t> memory;
+    vector<u_int8_t> registers;
     //opcodes
     void OP00(char dest, char val); //mov
     void OP01(int dest); //jmp
+    void OP02(int reg, int memAddr); //memp
+    void OP03(int reg, int memAddr); //memg
     ifstream fileStream;
-    char* opcodes;
+    vector<u_int8_t> opcodes;
     size_t length;
 };
 
