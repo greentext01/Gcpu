@@ -1,12 +1,10 @@
-#include <iostream>
 #include <fstream>
 #include "gcpu.h"
-#include <sstream>
 
 using namespace std;
 
 Gcpu::Gcpu(string file){
-    fileStream = ifstream(file, fstream::in); 
+    fileStream = ifstream(file); 
     fileStream.seekg(0, std::ios::end);
     length = fileStream.tellg();
     fileStream.seekg(0, std::ios::beg);
