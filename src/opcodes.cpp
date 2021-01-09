@@ -1,5 +1,4 @@
 #include "gcpu.h"
-#include <iostream>
 using namespace std;
 
 void Gcpu::OP00(u_int8_t dest, u_int8_t val){

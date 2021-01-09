@@ -1,14 +1,11 @@
 #include <iostream>
-#include "gcpu.h"
+#include "assembler.h"
 
 using namespace std;
 
 int main(){
-    Gcpu gcpu("testProg.bin");
-    gcpu.read();
-    gcpu.exec();
-    gcpu.exec();
-    gcpu.exec();
-    gcpu.printReg();
+    Assembler oasm("testAsm.oasm", "out.bin");
+    oasm.readFile();
+    oasm.build();
     return EXIT_SUCCESS;
 }
