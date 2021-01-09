@@ -8,6 +8,7 @@ int main(){
     gcpu.read();
     gcpu.exec();
     gcpu.exec();
+    gcpu.exec();
     gcpu.printReg();
     return EXIT_SUCCESS;
 }

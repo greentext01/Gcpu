@@ -7,6 +7,7 @@ $ make
 Output program is called Gcpu
 ## Editing:
 Edit testProg.bin with a hex editor (I reccommend [Bless](https://github.com/bwrsandman/Bless))
+Edit main.cpp and add a ```exec()``` function for each opcode you want to execute.
 
 ## Documentation:
 ```
