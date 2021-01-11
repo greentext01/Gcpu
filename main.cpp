@@ -4,11 +4,22 @@
 
 #include "include/assembler.hpp"
 #include "include/runner.hpp"
-#define HELPTEXT "<SAMPLE HELP TEXT>"
+
+// The help text that will be displayed when the user dows something wrong
+#define HELPTEXT                                                            \
+  "Usage 1: <Program Name> build -i<input file> -o<output file>\nUsage 2: " \
+  "<Program Name> run <file>\n"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
+  // Error catching
+  if (argc == 1) {
+    cout << "Error: no instruction specified.\n\n";
+    cout << HELPTEXT;
+    return EXIT_FAILURE;
+  }
+
   // Usage 1: build -i<input file> -o<output file>
   // Usage 2: run <file>
 
@@ -34,10 +45,9 @@ int main(int argc, char *argv[]) {
           break;
         case 'i':
           input = optarg;
-          cout << optarg;
           break;
         default:
-          cout << HELPTEXT << endl;
+          cout << HELPTEXT;
           break;
       }
     }
@@ -57,7 +67,9 @@ int main(int argc, char *argv[]) {
     oasm.build();
     return EXIT_SUCCESS;
   } else {
-    cout << HELPTEXT << endl;
+    // Did the user do something wrong?
+    //(doing -h or --help also triggers this)
+    cout << HELPTEXT;
     return EXIT_FAILURE;
   }
 }

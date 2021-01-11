@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include <fstream>
+#include <iostream>
 #include <map>
 #include <sstream>
 #include <vector>
@@ -18,6 +19,7 @@ class Assembler {
 
  private:
   map<string, u_int8_t> textToHexMap;
+  map<string, u_int8_t>::iterator foundItem;
   vector<string> fileLines;
   ifstream file;
   ofstream output;

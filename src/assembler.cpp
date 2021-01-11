@@ -3,6 +3,12 @@ using namespace std;
 
 Assembler::Assembler(string asmPath, string outputName) {
   file = ifstream(asmPath);
+
+  // Error catching
+  if (!file.good()) {
+    cout << "Error: Input file does not exist.\n";
+    exit(EXIT_FAILURE);
+  }
   output = ofstream(outputName);
   // Set assembler string to byte map
   textToHexMap["mov"] = 0x00;
@@ -27,13 +33,18 @@ void Assembler::readFile() {
 }
 
 void Assembler::build() {
+  int currentLineIndex = 0;
   for (string line : fileLines) {
+    currentLineIndex++;
     vector<string> args;
+
+    // Cut the string one spaces
     char* token = strtok((char*)line.c_str(), " ");
     while (token != NULL) {
       args.push_back(token);
       token = strtok(NULL, " ");
     }
+
     output << textToHexMap[args[0]];
     for (int i = 1; i < args.size(); i++) {
       char outByte = stoi(args[i], nullptr, 16);
