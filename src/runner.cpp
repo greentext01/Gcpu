@@ -51,6 +51,9 @@ void Runner::exec() {  // Execute the current instruction
     case 0x0B:
       OP0B();
       break;
+    case 0x0C:
+      OP0C();
+      break;
   }
 }
 

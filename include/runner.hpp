@@ -4,8 +4,10 @@
 #include <stdint.h>
 #include <unistd.h>
 
+#include <cstring>
 #include <fstream>
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -40,6 +42,11 @@ class Runner {
   void OP09(u_int8_t reg, u_int8_t dest);  // jb (jump if bigger than)
   void OP0A(u_int8_t reg, u_int8_t dest);  // js (jump if smaller than)
   void OP0B();                             // exit
+  void OP0C();                             // See wiki
+                                           // TODO set wiki page url
+
+  void BIOS00();  // printf
+  void BIOS01();  // scanf
   ifstream fileStream;
   vector<u_int8_t> opcodes;
   size_t length;
