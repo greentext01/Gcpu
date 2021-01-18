@@ -46,7 +46,7 @@ class Runner {
                                            // TODO set wiki page url
 
   void BIOS00();  // print char
-  void BIOS01();  // print int (hex)
+  void BIOS01();  // print int
   void BIOS02();  // scan char
   void BIOS03();  // scan int (hex)
 

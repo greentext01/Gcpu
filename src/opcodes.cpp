@@ -86,3 +86,5 @@ void Runner::OP0A(u_int8_t reg, u_int8_t dest) {
 }
 
 void Runner::OP0B() { exit(0); }
+
+// OP0C is in bios.cpp
