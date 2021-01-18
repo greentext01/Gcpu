@@ -1,5 +1,0 @@
-mov 00 03
-exec
-mov 00 01
-exec
-quit
