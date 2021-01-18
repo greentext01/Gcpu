@@ -24,15 +24,15 @@ void Runner::OP03(u_int8_t reg, u_int8_t memAddr) {
   currentInstruction += 3;
 }
 
-void Runner::OP04(u_int8_t reg, uint8_t amount) {
+void Runner::OP04(u_int8_t reg, uint8_t reg2) {
   // add (add value to number from register)
-  registers[reg] += amount;
+  registers[reg] += registers[reg2];
   currentInstruction += 3;
 }
 
-void Runner::OP05(u_int8_t reg, uint8_t amount) {
+void Runner::OP05(u_int8_t reg, uint8_t reg2) {
   // sub (substract value to number from register)
-  registers[reg] -= amount;
+  registers[reg] -= registers[reg2];
   currentInstruction += 3;
 }
 
