@@ -30,8 +30,6 @@ int main(int argc, char *argv[]) {
     runner.read();
     while (true) {  // Run the program
       runner.exec();
-      runner.printReg();
-      cout << "\n\n\n";
     }
   } else if (strcmp(argv[1], "build") == 0) {
     // Build:

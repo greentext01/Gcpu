@@ -1,2 +1,5 @@
 /.vscode
 /build
+output.bin
+testAsm.oasm
+testProg.bin

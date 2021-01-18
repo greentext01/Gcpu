@@ -22,7 +22,9 @@ Assembler::Assembler(string asmPath, string outputName) {
   textToHexMap["jne"] = 0x08;
   textToHexMap["jb"] = 0x09;
   textToHexMap["js"] = 0x0A;
-  textToHexMap["exit"] = 0x0B;
+  textToHexMap["exit"] = 0x0B;  // Quit or exit works
+  textToHexMap["quit"] = 0x0B;  //
+  textToHexMap["exec"] = 0x0C;
 }
 
 void Assembler::readFile() {
