@@ -42,11 +42,14 @@ class Runner {
   void OP09(u_int8_t reg, u_int8_t dest);  // jb (jump if bigger than)
   void OP0A(u_int8_t reg, u_int8_t dest);  // js (jump if smaller than)
   void OP0B();                             // exit
-  void OP0C();                             // See wiki
+  void OP0C();                             // exec (Very complicated, See wiki)
                                            // TODO set wiki page url
 
-  void BIOS00();  // printf
-  void BIOS01();  // scanf
+  void BIOS00();  // print char
+  void BIOS01();  // print int
+  void BIOS02();  // scan char
+  void BIOS03();  // scan int (hex)
+
   ifstream fileStream;
   vector<u_int8_t> opcodes;
   size_t length;
